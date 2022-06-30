@@ -21,7 +21,7 @@ class Estoque:
         fabri = input('Informe o código do fabricante do produto: ')
         for i in range(len(self.lista_fabricantes)):
             if self.lista_fabricantes[i].codigo == fabri:
-                codi = input('Informe o código do produto: ')
+                codi = input('\nInforme o código do produto: ')
                 desc = input('Informe a descrição do produto: ')
                 val = input('Informe o valor unitário deste produto: ')
                 self.lista_produtos.append(Produto(cod=codi, descricao=desc, objeto=self.lista_fabricantes[i], valor=val))
