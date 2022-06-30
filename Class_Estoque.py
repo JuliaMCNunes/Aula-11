@@ -1,17 +1,35 @@
-from Class_Produto import * 
+from Class_Produto import *
+from Class_Fabricante import *
 
 class Estoque:
     def __init__(self):
         self.lista_produtos = []
+        self.lista_fabricantes = []
+        
+    def cadastrar_fabricantes(self):
+        print('')
+        codig = input('Informe o código do fabricante: ')
+        nome = input('Informe o nome do fabricante: ')
+        cnpj_f = input('Informe o CNPJ do fabricante: ')
+        razao = input('Informe a razão social do fabricante: ')
+        self.lista_fabricantes.append(Fabricante(codigo=codig, nome=nome, cnpj=cnpj_f, razao_social=razao))
+        print('\nFabricante cadastrado com sucesso!\n')
         
     def cadastrar_produtos(self):
+        cont = 0
         print('')
-        codi = input('Informe o código do produto: ')
-        desc = input('Informe a descrição do produto: ')
-        fabri = input('Informe o fabricante do produto: ')
-        val = input('Informe o valor unitário deste produto: ')
-        self.lista_produtos.append(Produto(cod=codi, descricao=desc, fabricante=fabri, valor=val))
-        print('\nProduto cadastrado com sucesso!\n')
+        fabri = input('Informe o código do fabricante do produto: ')
+        for i in range(len(self.lista_fabricantes)):
+            if self.lista_fabricantes[i].codigo == fabri:
+                codi = input('Informe o código do produto: ')
+                desc = input('Informe a descrição do produto: ')
+                val = input('Informe o valor unitário deste produto: ')
+                self.lista_produtos.append(Produto(cod=codi, descricao=desc, objeto=self.lista_fabricantes[i], valor=val))
+                print('\nProduto cadastrado com sucesso!\n')
+            else:
+                cont += 1
+                if cont == len(self.lista_fabricantes):
+                    print('Produtos só podem ser cadastrados se seu fabricantes já for cadastrado no sistema!')
         
     def mostrar_itens(self):
         cont = 0

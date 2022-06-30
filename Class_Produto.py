@@ -1,7 +1,7 @@
 class Produto:
-    def __init__(self, cod, descricao, fabricante, valor, quantidade=0):
+    def __init__(self, cod, descricao, objeto, valor, quantidade=0):
         self.cod = cod
         self.descricao = descricao
-        self.fabricante = fabricante
+        self.fabricante = objeto.nome
         self.valor = valor
         self.quantidade = quantidade

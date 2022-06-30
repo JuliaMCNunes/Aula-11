@@ -27,9 +27,12 @@ class Gerenciador:
         for i in range(len(self.gerenciar.lista_produtos)):
             if self.gerenciar.lista_produtos[i].cod == retira:
                 sa = int(input('Informe a quantidade do produto: '))
-                self.gerenciar.lista_produtos[i].quantidade -= sa
-                self.movimentacao.append(f'Saida de {sa} unidades do produto ' + self.gerenciar.lista_produtos[i].cod)
-                self.saida_p.append(f'Saida de {sa} unidades do produto ' + self.gerenciar.lista_produtos[i].cod)
+                if self.gerenciar.lista_produtos[i].quantidade > sa:
+                    self.gerenciar.lista_produtos[i].quantidade -= sa
+                    self.movimentacao.append(f'Saida de {sa} unidades do produto ' + self.gerenciar.lista_produtos[i].cod)
+                    self.saida_p.append(f'Saida de {sa} unidades do produto ' + self.gerenciar.lista_produtos[i].cod)
+                else:
+                    print('O valor solicitado excede a quantidade no estoque.')
             else:
                 cont += 1
                 if cont == len(self.gerenciar.lista_produtos):

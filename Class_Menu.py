@@ -8,34 +8,60 @@ class Menu:
         catalogo1.gerenciar = catalogo
         
         while True:
-            selecao = input('Informe a opção desejada:' 
-                            '\n1 - Cadastrar produto' 
-                            '\n2 - Procurar produto'
-                            '\n3 - Alterar informações do produto'
-                            '\n4 - Efetuar abastecimento de produtos no estoque'
-                            '\n5 - Efetuar retirada de produtos no estoque'
-                            '\n6 - Ver movimentação de estoque'
-                            '\n7 - Ver as entradas de produtos no estoque'
-                            '\n8 - Ver as saidas de produtos no estoque'
-                            '\n0 - Sair\n')
+            exibir = print('--------------------------------------------------------'
+                            '\nInforme a opção desejada:'
+                            ''
+                            '\n1 - Cadastrar fabricante'                            
+                            ''                                                       
+                            '\n2 - Cadastrar produto'                                
+                            ''                                                       
+                            '\n3 - Procurar produto'                                 
+                            ''                                                       
+                            '\n4 - Alterar informações do produto'                   
+                            ''                                                       
+                            '\n5 - Efetuar abastecimento de produtos no estoque'      
+                            ''                                                       
+                            '\n6 - Efetuar retirada de produtos no estoque'          
+                            ''                                                       
+                            '\n7 - Ver movimentação de estoque'                      
+                            ''                                                       
+                            '\n8 - Ver as entradas de produtos no estoque'           
+                            ''                                                       
+                            '\n9 - Ver as saidas de produtos no estoque'             
+                            ''                                                       
+                            '\n0 - Sair\n'                                           
+                            '-------------------------------------------------------')
+            selecao = input(': ')
             
             if selecao == '1':
-                catalogo.cadastrar_produtos()
+                catalogo.cadastrar_fabricantes()
+                
             elif selecao == '2':
-                catalogo.mostrar_itens()
+                catalogo.cadastrar_produtos()
+                
             elif selecao == '3':
-                catalogo.mudar_descricao()
+                catalogo.mostrar_itens()
+                
             elif selecao == '4':
-                catalogo1.entrada()
+                catalogo.mudar_descricao()
+                
             elif selecao == '5':
-                catalogo1.saida()
+                catalogo1.entrada()
+                
             elif selecao == '6':
-                catalogo1.imprimir_t()
+                catalogo1.saida()
+                
             elif selecao == '7':
-                catalogo1.imprimir_e()
+                catalogo1.imprimir_t()
+                
             elif selecao == '8':
+                catalogo1.imprimir_e()
+                
+            elif selecao == '9':
                 catalogo1.imprimir_s()
+                
             elif selecao == '0':
                 break
+            
             else:
                 print('\nOpção inválida!\n')
